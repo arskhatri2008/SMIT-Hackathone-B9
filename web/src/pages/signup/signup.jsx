@@ -58,6 +58,36 @@ const AddStudent = () => {
         }}
 
 
+
+
+    // const signupSubmitHandler = async (e) =>{
+    //     e.preventDefault()
+
+    //     if(passwordInputRef.current.value !== repeatPasswordInputRef.current.value){
+    //         setPasswordErrorClass('')
+    //         return
+    //     }else{
+    //         setPasswordErrorClass('hidden')
+    //     }
+
+    //     try{
+    //         const response = await axios.post(`${baseUrl}/api/v1/mongoDB/signup`, {
+    //             firstName: firstNameInputRef.current.value,
+    //             lastName: lastNameInputRef.current.value,
+    //             email: emailInputRef.current.value,
+    //             password: passwordInputRef.current.value,
+    //             course: courseInputRef.current.value,
+    //             phone: phoneInputRef.current.value,
+    //         })
+    //         console.log(response.data.message);
+    //         setAlertMessage(response.data.message)
+    //     }catch (error){
+    //         console.log(error.response.data);
+    //         setErrorMessage(error.response.data.message)
+    //     }}
+
+
+
     return (
         <div>
         <h1>Add Student</h1>

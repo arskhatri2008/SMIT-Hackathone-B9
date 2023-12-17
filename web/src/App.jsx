@@ -85,12 +85,12 @@ const App = () => {
               <li>
                 <Link to={"/"}>Admin Home</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={"/chat"}>Admin Chat</Link>
               </li>
               <li>
                 <Link to={"/about"}>Admin About</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={"/signup"}>Add Student </Link>
               </li>
@@ -103,8 +103,8 @@ const App = () => {
 
           <Routes>
             <Route path="/" element={<AdminHome />} />
-            <Route path="about" element={<About />} />
-            <Route path="chat" element={<Chat />} />
+            {/* <Route path="about" element={<About />} />
+            <Route path="chat" element={<Chat />} /> */}
             <Route path="signup" element={<AddStudent />} />
             {/* <Route path='login' element={<Login />} />
             <Route path='signup' element={<Signup />} /> */}
@@ -118,18 +118,18 @@ const App = () => {
         <>
           <nav>
             <ul>
-              <li>
+              {/* <li>
                 <Link to={"/"}>Home</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={`/profile/${state.user._id}`}>Profile</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={"/chat"}>Chat</Link>
               </li>
               <li>
                 <Link to={"/about"}>About</Link>
-              </li>
+              </li> */}
               {state.user.email}
               <button onClick={logoutHandler}>Logout</button>
               {/* <li><Link to={'/login'}>Login</Link></li>
@@ -138,11 +138,11 @@ const App = () => {
           </nav>
 
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<ProfilePage />} />
             <Route path="about" element={<About />} />
             <Route path="chat" element={<Chat />} />
             {/* <Route path="profile" element={<ProfilePage />} /> */}
-            <Route path="profile/:userId" element={<ProfilePage />} />
+            {/* <Route path="profile/:userId" element={<ProfilePage />} /> */}
             {/* <Route path='login' element={<Login />} />
             <Route path='signup' element={<Signup />} /> */}
             <Route path="*" element={<Navigate to="/" replace={true} />} />

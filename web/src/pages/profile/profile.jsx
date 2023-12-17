@@ -23,6 +23,10 @@ const Profile = () => {
   const [profile, setProfile] = useState(null)
   const [checkInTime, setCheckInTime] = useState('')
   const [checkInHistory, setCheckInHistory] = useState([])
+  const [checkOutHistory, setCheckOutHistory] = useState([])
+  const [checkOutTime, setCheckOutTime] = useState('')
+  const [isCheckInDisabled, setIsCheckInDisabled] = useState(false);
+  const [isCheckOutVisible, setIsCheckOutVisible] = useState(false);
 
   const getAllPosts = async () => {
 
@@ -166,32 +170,53 @@ const Profile = () => {
   const CheckInHandler = async (e) => {
     e.preventDefault();
     try {
-      // setIsLoading(true);
-      // const response = await axios.post(`${baseUrl}/api/v1/mongoDB/checkIn`,{
-      //   userId: userId
-      // });
+      // const response = await axios.post(`${baseUrl}/api/v1/mongoDB/profile/:userId/checkIn`,{
+      //   checkInTime: checkInTime,
+      //   checkOutTime: checkOutTime,
+      // })
+      setIsCheckInDisabled(true);
 
-      // console.log(response.data);
+      // Set a timer to enable the check-in button after 5 minutes
+      setTimeout(() => {
+        setIsCheckInDisabled(false);
+        setIsCheckOutVisible(true);
+      }, 24*60*60*1000); // 5 minutes in milliseconds
 
-      // setIsLoading(false);
-      // setAlert(response.data.message)
-
-      //Update the check in time status
       const currentDateAndTime = new Date();
       setCheckInTime (currentDateAndTime.toLocaleString())
       console.log(checkInTime)
 
+      setIsCheckOutVisible(true);
       // Update check-in history state
       setCheckInHistory((prevHistory) => [...prevHistory, checkInTime]);
       console.log(checkInHistory)
 
-      // setToggleRefresh(!toggleRefresh)
     } catch (error) {
       console.log(error.data);
-      // setIsLoading(false);
     }
   }
 
+  const CheckOutHandler = async (e) => {
+    e.preventDefault();
+    try {
+      // Disable the check-out button
+      setIsCheckOutVisible(false);
+
+      // Update check-out time status
+      const currentDateAndTime = new Date();
+      setCheckOutTime(currentDateAndTime.toLocaleString());
+      console.log(checkOutTime);
+
+            // Update check-Out history state
+            setCheckOutHistory((prevHistory) => [...prevHistory, checkOutTime]);
+            console.log(checkOutHistory)
+      
+
+    } catch (error) {
+      console.log(error.data);
+      // Handle errors if needed
+    }
+  };
 
   return (
     <div>
@@ -207,7 +232,7 @@ const Profile = () => {
           <p>Check In Time:</p>
           <h3>{checkInTime}</h3>
           <p>Check Out Time:</p>
-          <h3></h3>
+          <h3>{checkOutTime}</h3>
         </div>
       </div>
       {/* {state.user._id === userId && (<form onSubmit={submitHandler}>
@@ -242,7 +267,12 @@ const Profile = () => {
       <br />
 
       <div>
-        <button onClick={CheckInHandler}>Check In</button>
+        <button onClick={CheckInHandler} disabled={isCheckInDisabled}>Check In</button>
+        {isCheckOutVisible && (
+          <button onClick={CheckOutHandler}>
+            Check Out
+          </button>
+        )}
       </div>
 
       <form onSubmit={searchHandler} style={{ textAlign: "right" }}>

@@ -21,6 +21,8 @@ const Profile = () => {
   const [toggleRefresh, setToggleRefresh] = useState(false)
   const {userId} = useParams();
   const [profile, setProfile] = useState(null)
+  const [checkInTime, setCheckInTime] = useState('')
+  const [checkInHistory, setCheckInHistory] = useState([])
 
   const getAllPosts = async () => {
 
@@ -161,6 +163,35 @@ const Profile = () => {
     }
   };
 
+  const CheckInHandler = async (e) => {
+    e.preventDefault();
+    try {
+      // setIsLoading(true);
+      // const response = await axios.post(`${baseUrl}/api/v1/mongoDB/checkIn`,{
+      //   userId: userId
+      // });
+
+      // console.log(response.data);
+
+      // setIsLoading(false);
+      // setAlert(response.data.message)
+
+      //Update the check in time status
+      const currentDateAndTime = new Date();
+      setCheckInTime (currentDateAndTime.toLocaleString())
+      console.log(checkInTime)
+
+      // Update check-in history state
+      setCheckInHistory((prevHistory) => [...prevHistory, checkInTime]);
+      console.log(checkInHistory)
+
+      // setToggleRefresh(!toggleRefresh)
+    } catch (error) {
+      console.log(error.data);
+      // setIsLoading(false);
+    }
+  }
+
 
   return (
     <div>
@@ -174,7 +205,7 @@ const Profile = () => {
           <p>Course:</p>
           <h3>{profile?.data?.course}</h3>
           <p>Check In Time:</p>
-          <h3></h3>
+          <h3>{checkInTime}</h3>
           <p>Check Out Time:</p>
           <h3></h3>
         </div>
@@ -209,6 +240,10 @@ const Profile = () => {
       <br />
       </form>)} */}
       <br />
+
+      <div>
+        <button onClick={CheckInHandler}>Check In</button>
+      </div>
 
       <form onSubmit={searchHandler} style={{ textAlign: "right" }}>
         <input type="search" placeholder="Search..." ref={searchInputRef} />

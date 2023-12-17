@@ -158,5 +158,24 @@ router.post('/signup', async (req, res, next) => {
     }
 })
 
+router.post('/checkIn', async (req, res, next) => {
+    try{
+    const userId = req.body.userId;
+    const user = await userCollection.findOne({ _id: userId });
+
+    if (!user) {
+        res.status(403).send({ message: 'user not found' });
+        return;
+    }
+    user.checkIn = new Date();
+    await userCollection.updateOne({ _id: userId }, { $set: user });
+    res.status(200).send({ message: 'check in successful' });
+}catch(e){
+    console.log(e);
+    res.status(500).send({ message: 'server error' });
+
+}
+})
+
 
 export default router

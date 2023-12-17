@@ -319,7 +319,7 @@ const Profile = () => {
            
         })}
 
-        {allPosts.length === 0 && "No Posts Yet"}
+        {allPosts.length === 0 && "No Data"}
       </div>
     </div>
   );

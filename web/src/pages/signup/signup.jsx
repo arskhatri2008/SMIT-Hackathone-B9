@@ -22,6 +22,7 @@ const AddStudent = () => {
     const [passwordErrorClass, setPasswordErrorClass] = useState("hidden")
     const [alertMessage , setAlertMessage] = useState('')
     const [errorMessage , setErrorMessage] = useState('')
+    const [isStudentAdded, setIsStudentAdded] = useState(false)
 
     useEffect(()=>{
         setTimeout(() => {
@@ -51,7 +52,18 @@ const AddStudent = () => {
                 phone: phoneInputRef.current.value,
             })
             console.log(response.data.message);
-            setAlertMessage(response.data.message)
+            setIsStudentAdded(true)
+            setAlertMessage('Student Added Successfully')
+            setErrorMessage('')
+
+            firstNameInputRef.current.value = '';
+            lastNameInputRef.current.value = '';
+            courseInputRef.current.value = '';
+            phoneInputRef.current.value = '';
+            emailInputRef.current.value = '';
+            passwordInputRef.current.value = '';
+            repeatPasswordInputRef.current.value = '';
+        
         }catch (error){
             console.log(error.response.data);
             setErrorMessage(error.response.data.message)
@@ -127,6 +139,7 @@ const AddStudent = () => {
 
   
           <button type="submit">Add Student</button>
+          {isStudentAdded && <p className="successMsg">{alertMessage}</p>}
           <div className='alertMsg'>{alertMessage}</div>
           <div className='errorMsg'>{errorMessage}</div>
         </form>

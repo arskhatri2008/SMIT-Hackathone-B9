@@ -5,13 +5,15 @@ import Home from "./pages/home/home";
 import About from "./pages/about/about";
 import Chat from "./pages/chat/chat";
 import Login from "./pages/login/login";
-import Signup from "./pages/signup/signup";
+// import Signup from "./pages/signup/signup";
 import ProfilePage from "./pages/profile/profile";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { GlobalContext } from "./context/context";
 import splashScreen from "./assets/splash.gif";
 import { baseUrl } from "./core";
+import AdminHome from "./pages/admin home/admin home";
+import AddStudent from "./pages/signup/signup";
 
 // const baseUrl = "http://localhost:5001";
 
@@ -89,6 +91,9 @@ const App = () => {
               <li>
                 <Link to={"/about"}>Admin About</Link>
               </li>
+              <li>
+                <Link to={"/signup"}>Add Student </Link>
+              </li>
               {state.user.email}
               <button onClick={logoutHandler}>Logout</button>
               {/* <li><Link to={'/login'}>Login</Link></li>
@@ -97,9 +102,10 @@ const App = () => {
           </nav>
 
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<AdminHome />} />
             <Route path="about" element={<About />} />
             <Route path="chat" element={<Chat />} />
+            <Route path="signup" element={<AddStudent />} />
             {/* <Route path='login' element={<Login />} />
             <Route path='signup' element={<Signup />} /> */}
             <Route path="*" element={<Navigate to="/" replace={true} />} />
@@ -166,7 +172,7 @@ const App = () => {
             <Route path='about' element={<About />} />
             <Route path='chat' element={<Chat />} /> */}
             <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
+            {/* <Route path="signup" element={<Signup />} /> */}
             <Route path="*" element={<Navigate to="/login" replace={true} />} />
             <Route path="profile/:userId" element={<ProfilePage />} />
           </Routes>

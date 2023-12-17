@@ -7,7 +7,7 @@ import { baseUrl } from '../../core'
 
 // const baseUrl = 'http://localhost:5001'
 
-const Signup = () => {
+const AddStudent = () => {
 
     const {state, dispatch} = useContext(GlobalContext)
 
@@ -56,7 +56,7 @@ const Signup = () => {
 
     return (
         <div>
-        <h1>Sign Up</h1>
+        <h1>Add Student</h1>
         <h2>{state.name}</h2>
         <form id="signupForm" onSubmit={signupSubmitHandler}>
           <label htmlFor="firstNameInput">First Name:</label>
@@ -66,6 +66,14 @@ const Signup = () => {
           <label htmlFor="lastNameInput">Last Name:</label>
           <input ref={lastNameInputRef} type="text" autoComplete='family-name' name="lastNameInput" id="lastNameInput" required />
   
+          <br />
+          <label htmlFor="courseInput">Course:</label>
+          <input ref={courseInputRef} type="text" autoComplete='family-name' name="courseInput" id="courseInput" required />
+
+          <br />
+          <label htmlFor="phoneInput">Phone: </label>
+          <input ref={phoneInputRef} type="tel" name="phoneInput" id="PhoneInput" required />
+
           <br />
           <label htmlFor="emailInput">Email:</label>
           <input ref={emailInputRef} type="email" autoComplete='email' name="emailInput" id="emailInput" required />
@@ -84,7 +92,7 @@ const Signup = () => {
           <br />
 
   
-          <button type="submit">Sign Up</button>
+          <button type="submit">Add Student</button>
           <div className='alertMsg'>{alertMessage}</div>
           <div className='errorMsg'>{errorMessage}</div>
         </form>
@@ -92,4 +100,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default AddStudent

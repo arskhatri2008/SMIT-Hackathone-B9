@@ -1,7 +1,6 @@
 {
   "name": "mongodb---crud",
   "version": "1.0.0",
-  "description": "",
   "main": "server.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,5 +21,7 @@
     "mongodb": "^5.9.0",
     "nanoid": "^4.0.2",
     "openai": "^4.10.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

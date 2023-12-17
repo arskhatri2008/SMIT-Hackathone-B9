@@ -168,12 +168,18 @@ const Profile = () => {
         <img className="bannerImg" src="" alt="" />
         <img className="profileImg" src="" alt="" />
         <div className="profileName">
-          <h1>
-            {profile?.data?.firstName} {profile?.data?.lastName}
-          </h1>
+          <h2>
+            Hello {profile?.data?.firstName} {profile?.data?.lastName}
+          </h2>
+          <p>Course:</p>
+          <h3>{profile?.data?.course}</h3>
+          <p>Check In Time:</p>
+          <h3></h3>
+          <p>Check Out Time:</p>
+          <h3></h3>
         </div>
       </div>
-      {state.user._id === userId && (<form onSubmit={submitHandler}>
+      {/* {state.user._id === userId && (<form onSubmit={submitHandler}>
         <label htmlFor="postTitleInput">Post Title: </label>
         <input
           type="text"
@@ -194,14 +200,6 @@ const Profile = () => {
         maxLength={9999}
         ref={postBodyInputRef}>
         </textarea>
-        {/* <textarea
-          name=""
-          id="postBodyInput"
-          required
-          minLength={2}
-          maxLength={20}
-          ref={postBodyInputRef}
-        ></textarea> */}
         <br />
         <button type="submit">Publish Post</button>
         <span>
@@ -209,7 +207,7 @@ const Profile = () => {
           {isLoading && "Loading..."}
       </span>
       <br />
-      </form>)}
+      </form>)} */}
       <br />
 
       <form onSubmit={searchHandler} style={{ textAlign: "right" }}>

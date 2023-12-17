@@ -6,7 +6,7 @@ let data = {
   role: null, // null || 'user' || 'admin'
   isLogin: null, // null || true || false
   // name: 'some random name',
-  darkTheme: true
+  darkTheme: true,
 }
 export default function ContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, data)

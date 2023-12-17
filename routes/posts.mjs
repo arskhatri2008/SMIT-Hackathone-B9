@@ -40,8 +40,8 @@ import { ObjectId } from "mongodb";
 import OpenAI from "openai";
 
 const db = client.db("cruddb");
-const col = db.collection("posts");
-const userCollection = db.collection("users");
+const col = db.collection("attendance");
+const userCollection = db.collection("students");
 
 let router = express.Router();
 
@@ -180,6 +180,7 @@ const getProfileMiddleware = async (req, res, next) => {
         lastName: result?.lastName,
         email: result?.email,
         _id: result?._id,
+        course: result?.course,
       },
     });
   } catch (error) {

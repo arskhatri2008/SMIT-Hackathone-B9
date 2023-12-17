@@ -155,24 +155,17 @@ const App = () => {
         <>
           <nav>
             <ul>
-              {/* <li><Link to={'/'}>Home</Link></li>
-            <li><Link to={'/chat'}>Chat</Link></li>
-            <li><Link to={'/about'}>About</Link></li> */}
-              <li>
+              {/* <li>
                 <Link to={"/login"}>Login</Link>
               </li>
               <li>
                 <Link to={"/signup"}>Sign Up</Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
 
           <Routes>
-            {/* <Route path='/' element={<Home />} />
-            <Route path='about' element={<About />} />
-            <Route path='chat' element={<Chat />} /> */}
             <Route path="login" element={<Login />} />
-            {/* <Route path="signup" element={<Signup />} /> */}
             <Route path="*" element={<Navigate to="/login" replace={true} />} />
             <Route path="profile/:userId" element={<ProfilePage />} />
           </Routes>

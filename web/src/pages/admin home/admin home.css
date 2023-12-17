@@ -1,10 +1,60 @@
-.post{
-    margin: 2rem;
-    padding: 1.5rem;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+/* admin home.css */
 
-}
-
-.post h2{
-    font-size: 2rem;
-}
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .post h2 {
+    color: #333;
+  }
+  
+  .post p {
+    margin-bottom: 10px;
+  }
+  
+  .post button {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  form input[type="text"],
+  form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  form button {
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form button[type="submit"] {
+    background-color: #007bff;
+  }
+  
+  form span {
+    color: red;
+    margin-left: 10px;
+  }
+  
+  form hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  form input[type="search"] {
+    padding: 8px;
+  }
+  
+  /* Add more styles as needed */
+  

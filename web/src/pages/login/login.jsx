@@ -56,15 +56,15 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <div>{JSON.stringify(state)}</div>
+      {/* <div>{JSON.stringify(state)}</div> */}
 
       {/* <h2>{state.name} <button onClick={ChangNameHandler}>Change Name</button></h2> */}
       <form id="loginForm" onSubmit={loginSubmitHandler}>
-        <label htmlFor="emailInput">email:</label>
+        <label htmlFor="emailInput">Email:</label>
         <input type="email" autoComplete="email" name="emailInput" id="emailInput" ref={emailInputRef} required />
 
         <br />
-        <label htmlFor="passwordInput">password:</label>
+        <label htmlFor="passwordInput">Password:</label>
         <input type="password" autoComplete="current-password" name="passwordInput" id="passwordInput" ref={passwordInputRef} />
 
         <br />

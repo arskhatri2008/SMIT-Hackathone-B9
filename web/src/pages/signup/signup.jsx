@@ -16,6 +16,8 @@ const AddStudent = () => {
     const emailInputRef = useRef(null)
     const passwordInputRef = useRef(null)
     const repeatPasswordInputRef = useRef(null)
+    const courseInputRef = useRef(null)
+    const phoneInputRef = useRef(null)
 
     const [passwordErrorClass, setPasswordErrorClass] = useState("hidden")
     const [alertMessage , setAlertMessage] = useState('')
@@ -45,6 +47,8 @@ const AddStudent = () => {
                 lastName: lastNameInputRef.current.value,
                 email: emailInputRef.current.value,
                 password: passwordInputRef.current.value,
+                course: courseInputRef.current.value,
+                phone: phoneInputRef.current.value,
             })
             console.log(response.data.message);
             setAlertMessage(response.data.message)

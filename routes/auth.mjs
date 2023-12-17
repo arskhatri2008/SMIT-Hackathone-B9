@@ -9,7 +9,7 @@ import {
 
 let router = express.Router()
 
-const userCollection = client.db("cruddb").collection("users");
+const userCollection = client.db("cruddb").collection("students");
 
 router.post('/login', async (req, res, next) => {
 
@@ -103,6 +103,8 @@ router.post('/signup', async (req, res, next) => {
         || !req.body?.lastName // family name, sur name
         || !req.body?.email
         || !req.body?.password
+        || !req.body?.course
+        || !req.body?.phone
     ) {
         res.status(403);
         res.send(`required parameters missing, 
@@ -112,6 +114,8 @@ router.post('/signup', async (req, res, next) => {
             lastName: "some lastName",
             email: "some@email.com",
             password: "some$password",
+            course: "some course",
+            phone: "some phone",
         } `);
         return;
     }
@@ -132,17 +136,19 @@ router.post('/signup', async (req, res, next) => {
                 isAdmin: false,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
+                course: req.body.course,
+                phone: req.body.phone,
                 email: req.body.email,
                 password: passwordHash,
                 createdOn: new Date()
             });
             console.log("insertResponse: ", insertResponse);
 
-            res.send({ message: 'Signup successful' });
+            res.send({ message: 'Student Added Successfully' });
 
         } else { // user already exists
             res.status(403).send({
-                message: "user already exist with this email"
+                message: "Student Already Exists"
             });
         }
 
